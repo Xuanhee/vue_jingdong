@@ -1,0 +1,28 @@
+// 定义预计根元素 fontSize -> iPhone 6 6s  7  8
+$rootFontSize: 375/10;
+
+// 定义像素转换为 rem的函数
+@function px2rem ($px) {
+    @return $px / $rootFontSize+rem;
+}
+
+// 字体定义规范
+// 初始字体
+$mInfoFontSize: px2rem(12);
+$infoFontSize: px2rem(14);
+$titleFontSize: px2rem(16);
+
+
+// 颜色定义规范
+// 背景色
+$color-background:#f5f5f5;
+$color-background-w:#fff;
+$color-background-d : rgba(0, 0, 0, 0.1);
+// 主题色
+$color-theme:#d81e06;
+// 分割线颜色
+$color-line:#e5e5e5;
+// 秒杀红色
+$color-red:red;
+$color-text-b:rgba(0, 0, 0, 0.5);
+$color-text-bb:rgba(0, 0, 0, 0.8)
