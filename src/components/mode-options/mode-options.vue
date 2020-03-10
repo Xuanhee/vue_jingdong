@@ -1,6 +1,11 @@
 <template>
   <div class="mode-options">
-    <div class="mode-options-item" v-for="(item,index) in modeOptions" :key="index">
+    <div
+      class="mode-options-item"
+      v-for="(item,index) in modeOptions"
+      :key="index"
+      @click="selectItem(item)"
+    >
       <img :src="item.icon" class="mode-options-item-icon" />
       <span class="mode-options-item-title">{{item.title}}</span>
     </div>
@@ -61,6 +66,11 @@ export default {
         icon: require('assets/image/quanBu.png'),
         title: '全部'
       }]
+  },
+  methods: {
+    selectItem (item) {
+      this.$emit('select', item)
+    }
   }
 }
 </script>

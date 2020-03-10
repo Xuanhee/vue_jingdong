@@ -1,0 +1,18 @@
+// 定义字体超出显示省略号,可以传入参数设置显示几行文字
+@mixin text-overflow($clamp:1) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-word;
+    -webkit-line-clamp: $clamp;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+}
+
+@mixin triangle() {
+    width: 0;
+    height: 0;
+    display: inline-block;
+    border-top: px2rem(8) solid $color-theme;
+    border-left: px2rem(8) solid transparent;
+    border-right: px2rem(8) solid transparent;    
+}

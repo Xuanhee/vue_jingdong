@@ -1,5 +1,5 @@
 <template>
-  <swiper :options="swiperOptions" v-if="swiperImgs.length">
+  <swiper :options="swiperOptions" v-if="swiperImgs && swiperImgs.length">
     <swiper-slide v-for="(item,index) in swiperImgs" :key="index">
       <img :src="item" class="swiper-slide-img" :style="{height:swiperHeight }" />
     </swiper-slide>
@@ -18,7 +18,7 @@ export default {
     // 是否自动播放
     autoplay: {
       // 接收一个对象类型的数据
-      type: Object,
+      type: [Object, Boolean],
       default () {
         return {
           // 默认轮播图间隔时间3秒
@@ -48,11 +48,14 @@ export default {
     // 图片数据源
     swiperImgs: {
       type: Array,
-      // 必须传入的属性
-      required: true,
       deafult () {
         return []
       }
+    },
+    // 分页器样式
+    paginationType: {
+      type: String,
+      default: 'bullets'
     }
   },
   data () {
@@ -70,9 +73,7 @@ export default {
           // 分页器对应的html元素
           el: '.swiper-pagination',
           // 分页器样式
-          type: 'bullets',
-          // // 分页器内的元素
-          bulletClass: 'my-bullet'
+          type: this.paginationType
         }
       }
     }
@@ -91,7 +92,7 @@ export default {
 }
 .swiper-pagination {
   bottom: px2rem(12);
-  .my-bullet {
+  &-bullet {
     box-sizing: border-box;
     display: inline-block;
     width: px2rem(8);
@@ -99,10 +100,28 @@ export default {
     margin: 0 px2rem(4);
     border: px2rem(1) solid $color-background;
     border-radius: 50%;
+    background: none;
     opacity: 1;
   }
   &-bullet-active {
     background-color: $color-background;
+  }
+  // 数字分页器
+  &-fraction {
+    left: auto;
+    right: 0;
+    width: auto;
+    font-size: $infoFontSize;
+    bottom: px2rem(32);
+    background-color: $color-background-d;
+    padding: px2rem(6) px2rem(18);
+    border-top-left-radius: px2rem(16);
+    border-bottom-left-radius: px2rem(16);
+    color: $color-text-w;
+    .swiper-pagination-current {
+      font-size: $titleFontSize;
+      font-weight: 700;
+    }
   }
 }
 </style>

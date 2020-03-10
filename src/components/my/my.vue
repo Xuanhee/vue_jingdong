@@ -1,12 +1,16 @@
 <template>
   <div class="my">
+    <navigation-bar pageName="个人中心" :isShowBack="true"></navigation-bar>
     <h1>my</h1>
   </div>
 </template>
 
 <script>
+import NavigationBar from 'base/navigation-bar/navigation-bar'
 export default {
-
+  components: {
+    NavigationBar
+  }
 }
 </script>
 

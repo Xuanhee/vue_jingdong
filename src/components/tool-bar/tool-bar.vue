@@ -25,7 +25,7 @@ export default {
     }, {
       nIcon: require('assets/image/shopping-n.svg'),
       hIcon: require('assets/image/shopping-h.svg'),
-      name: '购物城',
+      name: '购物车',
       componentName: 'shopping'
     }, {
       nIcon: require('assets/image/my-n.svg'),
@@ -53,7 +53,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '~assets/css/variable.scss';
+@import 'assets/css/variable.scss';
 .tool-bar {
   width: 100%;
   height: px2rem(46);

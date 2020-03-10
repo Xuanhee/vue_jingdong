@@ -2,6 +2,7 @@
   <div class="seconds-wrapper">
     <div class="seconds-wrap">
       <p class="seconds-wrap-title">京东秒杀</p>
+      <count-down :startHours="startHours"></count-down>
     </div>
     <div class="seconds-content">
       <div class="seconds-content-item" v-for="(item,index) in secondsData" :key="index">
@@ -14,7 +15,7 @@
 </template>
 
 <script>
-
+import CountDown from 'components/seconds/count-down'
 export default {
   props: {
     secondsData: {
@@ -22,10 +23,17 @@ export default {
       default () {
         return []
       }
-    },
-    methods: {
-
     }
+  },
+  created () {
+    // 设置活动开始的时间
+    this.startHours = 18
+  },
+  methods: {
+
+  },
+  components: {
+    CountDown
   }
 }
 </script>

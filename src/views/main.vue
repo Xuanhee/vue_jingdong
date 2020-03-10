@@ -11,7 +11,7 @@
 <script>
 import ToolBar from 'components/tool-bar/tool-bar'
 export default {
-
+  name: 'firsPage',
   data () {
     return {
       currentComponent: 'home'
@@ -36,7 +36,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '~assets/css/variable.scss';
+@import 'assets/css/variable.scss';
 .main {
   position: fixed;
   top: 0;
